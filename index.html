@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Pix My Life</title>
+</head>
+
+
+<body>
+
+</body>
+
+    <div class="container"></div>
+
+    <div class="tools">
+
+        <div class="tools--drawing">
+            <input type="color" id="color-picker">
+            <button id="pen"></button>
+            <button id="eraser"></button>
+            <button id="clear"></button>
+        </div>
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="64" value="16" class="slider" id="dim">
+            <div class="slidevalue"><span id="slideoutput"></span></div>
+        </div>
+        <div class="tools--bg">
+            <!-- 
+                toggle bg img
+                upload bg img
+                delete bg img
+             -->
+        </div>
+    </div>
+
+
+    <script>
+
+        const dimensions = document.querySelector("#dim");
+        const slideoutput = document.querySelector("#slideoutput");
+
+        const container = document.querySelector(".container");
+
+        const color = document.querySelector("#color-picker");
+
+
+        function initPixels(){
+            container.textContent = '';
+            
+            for(let i=0; i<dimensions.value*dimensions.value; i++){
+                let pixel = document.createElement("div");
+                pixel.style["width"] = container.offsetWidth / dimensions.value -2 +"px"; //decr by 2px to account for border
+                pixel.style["border"] = "1px solid #9DC0BC";
+
+                container.appendChild(pixel);
+
+                pixel.addEventListener("click", () => {
+                    pixel.style["background-color"] = color.value;
+                    pixel.style["border-color"] = color.value;
+                })
+            }
+        }
+
+        function setDim(){
+            console.log("setDim")
+            slideoutput.textContent = dimensions.value +" x "+ dimensions.value;
+            initPixels();
+        }
+
+
+        setDim();
+        dimensions.addEventListener("click", setDim);
+
+    </script>
+
+</html>

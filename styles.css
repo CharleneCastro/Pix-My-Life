@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    min-height: 300px;
+    max-height: 500px;
+
+    aspect-ratio: 1/1;
+    margin: 5% auto;
+    border: 2px solid black;
+}
+
+.container div {
+    aspect-ratio: 1/1;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+
+.tools {
+    min-height: 10vh;
+    margin: 5% auto;
+    border: 2px solid black;
+}
+
+.container, 
+.tools {
+    min-width: 300px;
+    max-width: 500px;
+}
+
+button {
+    aspect-ratio: 1/1;
+}
