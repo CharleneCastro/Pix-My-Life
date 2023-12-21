@@ -22,19 +22,24 @@
             <button id="pen"><img src="images\icons8-pencil-96.png" alt=""></button>
             <button id="clear"><img src="images\icons8-clear-96.png" alt=""></button>
             <button id="eraser"><img src="images\icons8-eraser-96.png" alt=""></button>
+
+            <div class="slidecontainer">
+                <input type="range" min="1" max="64" value="16" class="slider" id="dim">
+                <div class="slidevalue"><span id="slideoutput"></span></div>
+            </div>
         </div>
 
-        <div class="slidecontainer">
-            <input type="range" min="1" max="64" value="16" class="slider" id="dim">
-            <div class="slidevalue"><span id="slideoutput"></span></div>
-        </div>
+
 
         <div class="tools--bg">
-            <!-- 
-                toggle bg img
-                upload bg img
-                delete bg img
-             -->
+            <button id="bg-upload"><img src="images\icons8-image-file-add-96.png" alt="">
+                <form action="/action_page.php">
+                    <input type="file" id="img" name="img" accept="image/*">
+                    <!-- <input type="submit"> -->
+                </form>
+            </button>
+            <button id="bg-toggle"><img src="images\icons8-invisible-96.png" alt=""> Show/Hide Background Image</button>
+            <button id="bg-delete"><img src="images\icons8-delete-trash-96.png" alt="">Delete Background Image</button>
         </div>
     </div>
 
@@ -42,6 +47,11 @@
         <a target="_blank" href="https://icons8.com/icon/oSaVJS0JhbLs/pencil">Pencil</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         <a target="_blank" href="https://icons8.com/icon/Frhd72SVxVih/eraser-tool">Eraser</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         <a target="_blank" href="https://icons8.com/icon/rfONvVz8D9x6/broom">Clear</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+        <a target="_blank" href="https://icons8.com/icon/tHE66XOjzxbC/image-file-add">Image File Add</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://icons8.com/icon/cmVpFm3oEIeb/eye">Visible</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://icons8.com/icon/1CzmVA4cAHOs/invisible">Invisible</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://icons8.com/icon/JoZoa0LgYn1E/delete-trash">Delete Trash</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
     </div>
 
 
