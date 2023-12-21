@@ -121,10 +121,14 @@
         clearBtn.addEventListener("click", clearCanvas);
 
         pen.addEventListener("click", function() {
+            eraser.classList.remove("active");
+            pen.classList.add("active");
             penMode = "draw";
         })
 
         eraser.addEventListener("click", function() {
+            pen.classList.remove("active");
+            eraser.classList.add("active");
             penMode = "erase";
         })
 
