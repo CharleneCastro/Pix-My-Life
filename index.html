@@ -46,6 +46,9 @@
         const container = document.querySelector(".container");
 
         const color = document.querySelector("#color-picker");
+        const pen = document.querySelector("#pen");
+        const eraser = document.querySelector("#eraser");
+        const clearBtn = document.querySelector("#clear");
 
 
         function initPixels(){
@@ -58,7 +61,8 @@
                 for(let j=1; j<=dimensions.value; j++){ //col
 
                     let pixel = document.createElement("div");
-                    pixel.style["border"] = "1px solid #9DC0BC";
+                    pixel.classList.add("pixel");
+                    pixel.style["border"] = "1px solid rgba(233, 241, 247, 0.5)";
 
                     pixel.style["grid-row"] = i +" / span "+ 1;
                     pixel.style["grid-column"] = j +" / span "+ 1;
@@ -78,6 +82,19 @@
             slideoutput.textContent = dimensions.value +" x "+ dimensions.value;
             initPixels();
         }
+
+        function clearCanvas(){
+            console.log("hi")
+            let pixels = document.querySelectorAll(".pixel");
+            console.log(pixels)
+            for(let p of pixels){
+                p.style["background-color"] = "transparent";
+                p.style["border"] = "1px solid rgba(233, 241, 247, 0.5)";
+            }
+        }
+
+
+        clearBtn.addEventListener("click", clearCanvas);
 
 
         setDim();
