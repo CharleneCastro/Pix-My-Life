@@ -24,7 +24,7 @@
             <button id="eraser"><img src="images\icons8-eraser-96.png" alt=""></button>
 
             <div class="slidecontainer">
-                <input type="range" min="1" max="64" value="16" class="slider" id="dim">
+                <input type="range" min="1" max="64" value="16" class="slider" id="dim" onchange = "setDim(this.value)">
                 <div class="slidevalue"><span id="slideoutput"></span></div>
             </div>
         </div>
@@ -102,7 +102,6 @@
         }
 
         function setDim(){
-            console.log("setDim")
             slideoutput.textContent = dimensions.value +" x "+ dimensions.value;
             initPixels();
         }
@@ -134,8 +133,6 @@
 
 
         setDim();
-        dimensions.addEventListener("click", setDim);
-
     </script>
 
 </html>
