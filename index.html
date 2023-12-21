@@ -56,6 +56,7 @@
 
 
     <script>
+        var penMode = "draw";
 
         const dimensions = document.querySelector("#dim");
         const slideoutput = document.querySelector("#slideoutput");
@@ -87,8 +88,14 @@
                     container.appendChild(pixel);
 
                     pixel.addEventListener("click", () => {
-                        pixel.style["background-color"] = color.value;
-                        pixel.style["border-color"] = color.value;
+                        if(penMode === "draw"){
+                            pixel.style["background-color"] = color.value;
+                            pixel.style["border-color"] = color.value;
+                        }
+                        else if(penMode === "erase"){
+                            pixel.style["background-color"] = "transparent";
+                            pixel.style["border"] = "1px solid rgba(233, 241, 247, 0.5)";
+                        }
                     })
                 }
             }
@@ -112,6 +119,14 @@
 
 
         clearBtn.addEventListener("click", clearCanvas);
+
+        pen.addEventListener("click", function() {
+            penMode = "draw";
+        })
+
+        eraser.addEventListener("click", function() {
+            penMode = "erase";
+        })
 
 
         setDim();
