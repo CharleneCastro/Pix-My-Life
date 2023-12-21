@@ -50,18 +50,26 @@
 
         function initPixels(){
             container.textContent = '';
+
+            container.style["grid-template-rows"] = "repeat("+dimensions.value+", 1fr)"
+            container.style["grid-template-columns"] = "repeat("+dimensions.value+", 1fr)"
             
-            for(let i=0; i<dimensions.value*dimensions.value; i++){
-                let pixel = document.createElement("div");
-                pixel.style["width"] = container.offsetWidth / dimensions.value -2 +"px"; //decr by 2px to account for border
-                pixel.style["border"] = "1px solid #9DC0BC";
+            for(let i=1; i<=dimensions.value; i++){ //row
+                for(let j=1; j<=dimensions.value; j++){ //col
 
-                container.appendChild(pixel);
+                    let pixel = document.createElement("div");
+                    pixel.style["border"] = "1px solid #9DC0BC";
 
-                pixel.addEventListener("click", () => {
-                    pixel.style["background-color"] = color.value;
-                    pixel.style["border-color"] = color.value;
-                })
+                    pixel.style["grid-row"] = i +" / span "+ 1;
+                    pixel.style["grid-column"] = j +" / span "+ 1;
+
+                    container.appendChild(pixel);
+
+                    pixel.addEventListener("click", () => {
+                        pixel.style["background-color"] = color.value;
+                        pixel.style["border-color"] = color.value;
+                    })
+                }
             }
         }
 
