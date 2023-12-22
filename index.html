@@ -57,6 +57,7 @@
 
     <script>
         var penMode = "draw";
+        var penDrag = false;
 
         const dimensions = document.querySelector("#dim");
         const slideoutput = document.querySelector("#slideoutput");
@@ -67,6 +68,19 @@
         const pen = document.querySelector("#pen");
         const eraser = document.querySelector("#eraser");
         const clearBtn = document.querySelector("#clear");
+
+
+
+        function draw(p){
+            if(penMode === "draw" && penDrag){
+                p.style["background-color"] = color.value;
+                p.style["border-color"] = color.value;
+            }
+            else if(penMode === "erase" && penDrag){
+                p.style["background-color"] = "transparent";
+                p.style["border"] = "1px solid rgba(233, 241, 247, 0.5)";
+            }
+        }
 
 
         function initPixels(){
@@ -87,15 +101,13 @@
 
                     container.appendChild(pixel);
 
+
+                    pixel.addEventListener("mouseover", () => draw(pixel));
+
                     pixel.addEventListener("click", () => {
-                        if(penMode === "draw"){
-                            pixel.style["background-color"] = color.value;
-                            pixel.style["border-color"] = color.value;
-                        }
-                        else if(penMode === "erase"){
-                            pixel.style["background-color"] = "transparent";
-                            pixel.style["border"] = "1px solid rgba(233, 241, 247, 0.5)";
-                        }
+                        penDrag = true;
+                        draw(pixel);
+                        penDrag = false;
                     })
                 }
             }
@@ -115,6 +127,14 @@
                 p.style["border"] = "1px solid rgba(233, 241, 247, 0.5)";
             }
         }
+
+
+        container.addEventListener("mousedown", function() {
+            penDrag = true;
+        })
+        container.addEventListener("mouseup", function() {
+            penDrag = false;
+        })
 
 
         clearBtn.addEventListener("click", clearCanvas);
