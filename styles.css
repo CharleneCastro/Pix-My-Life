@@ -1,6 +1,25 @@
 body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     background-color: #414647;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    max-height: 100vh;
+    height: 100vh;
+    max-width: 90vw;
+    width: 100vw;
+    padding: 0.5rem;
+    overflow-x: hidden;
+}
+
 
 button:active,
 .active {
@@ -21,7 +40,7 @@ button > img {
 
 .container, 
 .tools {
-    min-width: 300px;
+    min-width: 200px;
     max-width: 500px;
     border: 2px solid #E9F1F7;
     box-shadow: 2px 2px 8px 4px #272a2a;
@@ -29,9 +48,8 @@ button > img {
 
 .container {
     display: grid;
-
-    min-height: 300px;
-    max-height: 500px;
+    flex-shrink: 1;
+    flex-grow: 1;
 
     aspect-ratio: 1/1;
     margin: 2.5% auto;
@@ -42,6 +60,9 @@ button > img {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(3, 1fr);
+
+    flex-shrink: 1;
+    flex-grow: 0; /* stop vertical stretch */
 
     min-height: 10vh;
     padding: 1.5rem;
@@ -65,15 +86,21 @@ button > img {
 }
 
 input[type=color],
-.tools--drawing > button {
+.tools--drawing > button,
+.tools--bg > button {
     min-width: 0; /* avoids overflow from grid */
     min-height: 0; /* avoids overflow from grid */
     width: 100%;
     height: 100%;
-    aspect-ratio: 1/1;
     background-color: #E9F1F7;
     border-radius: 12px;
     cursor: pointer;
+}
+
+
+input[type=color],
+.tools--drawing > button {
+    aspect-ratio: 1/1;
 }
 
 
